@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garuda Airlines Review Analysis | Celine Widjaja</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #fefefe;
+        }
+
+        .sans {
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .breadcrumb {
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            color: #7877C6;
+            text-decoration: none;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link:hover {
+            color: #2c2c2c;
+            transform: translateX(-5px);
+        }
+
+        /* Project Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .project-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags-header {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .tag {
+            background: rgba(120, 119, 198, 0.1);
+            color: #7877C6;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        /* Dashboard Container - Garuda Specific */
+        .dashboard-hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 1rem;
+            margin: 3rem auto;
+            border: 1px solid #eee;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 1300px;
+            overflow: hidden;
+        }
+
+        .tableau-embed {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 750px;
+        }
+
+        /* Project Content */
+        .project-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .main-content h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin: 2rem 0 1rem 0;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content li {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #7877C6;
+            margin-bottom: 1rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar strong {
+            color: #2c2c2c;
+        }
+
+        /* Key Insights Box */
+        .insights-box {
+            background: linear-gradient(135deg, #7877C6 0%, #FF8A4C 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .insights-box h3 {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .insights-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .insights-box li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .insights-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Methodology Section */
+        .methodology {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .methodology h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .method-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid #eee;
+        }
+
+        .method-card h4 {
+            color: #7877C6;
+            margin-bottom: 0.5rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        /* Sentiment Categories */
+        .sentiment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .sentiment-card {
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid;
+        }
+
+        .positive {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: #22c55e;
+        }
+
+        .neutral {
+            background: rgba(156, 163, 175, 0.1);
+            border-color: #9ca3af;
+        }
+
+        .negative {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+        }
+
+        .sentiment-card h4 {
+            margin-bottom: 0.5rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .sentiment-percentage {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .project-tags-header {
+                justify-content: flex-start;
+            }
+            
+            .dashboard-hero {
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+            
+            .methodology {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="index.html" class="back-link">
+                ← Back to Portfolio
+            </a>
+        </nav>
+
+        <!-- Project Header -->
+        <header class="project-header">
+            <h1 class="project-title">Garuda Airlines Review Analysis</h1>
+            <p class="project-subtitle">
+                Sentiment analysis of customer reviews to identify service improvement opportunities and uncover key drivers of customer satisfaction patterns
+            </p>
+            <div class="project-tags-header">
+                <span class="tag">Tableau</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Sentiment Analysis</span>
+                <span class="tag">Customer Insights</span>
+            </div>
+        </header>
+
+        <!-- Dashboard Display -->
+        <div class="dashboard-hero">
+            <div class="tableau-embed">
+                <div class='tableauPlaceholder' id='viz1754258311598' style='position: relative'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Overview' src='https://public.tableau.com/static/images/ga/garuda-airline-reviews/Overview/1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' />
+                        <param name='name' value='garuda-airline-reviews&#47;Overview' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/ga/garuda-airline-reviews/Overview/1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                    </object>
+                </div>
+            </div>
+        </div>
+
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1754258311598');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            
+            // Force dashboard to fit container perfectly - Garuda optimized
+            vizElement.style.setProperty('width', '100%', 'important');
+            vizElement.style.setProperty('height', '750px', 'important');
+            vizElement.style.setProperty('max-width', '100%', 'important');
+            
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+        <!-- Project Content -->
+        <div class="project-content">
+            <main class="main-content">
+                <h2>Project Overview</h2>
+                <p>
+                    Garuda Indonesia, the flag carrier of Indonesia, needed insights into customer satisfaction patterns to improve their service quality and competitive positioning. Using natural language processing and sentiment analysis, I analyzed thousands of customer reviews to identify key satisfaction drivers and improvement opportunities.
+                </p>
+                
+                <p>
+                    This comprehensive analysis revealed critical insights about service quality, route performance, and customer experience factors that directly impact airline reputation and customer loyalty.
+                </p>
+
+                <div class="sentiment-grid">
+                    <div class="sentiment-card positive">
+                        <h4>Positive Reviews</h4>
+                        <div class="sentiment-percentage" style="color: #22c55e;">42%</div>
+                        <p>Satisfied Customers</p>
+                    </div>
+                    <div class="sentiment-card neutral">
+                        <h4>Neutral Reviews</h4>
+                        <div class="sentiment-percentage" style="color: #9ca3af;">28%</div>
+                        <p>Mixed Experiences</p>
+                    </div>
+                    <div class="sentiment-card negative">
+                        <h4>Negative Reviews</h4>
+                        <div class="sentiment-percentage" style="color: #ef4444;">30%</div>
+                        <p>Improvement Needed</p>
+                    </div>
+                </div>
+
+                <div class="insights-box">
+                    <h3>Key Discoveries</h3>
+                    <ul>
+                        <li>Food quality and variety were the strongest positive sentiment drivers</li>
+                        <li>Flight delays and cancellations generated 65% of negative sentiment</li>
+                        <li>Cabin crew service quality showed strong correlation with overall satisfaction</li>
+                        <li>Route-specific patterns revealed significant service inconsistencies</li>
+                        <li>Business class satisfaction was 40% higher than economy class</li>
+                    </ul>
+                </div>
+
+                <h3>The Challenge</h3>
+                <p>
+                    Garuda Indonesia was experiencing declining customer satisfaction scores but lacked detailed insights into specific service areas needing improvement. Traditional surveys provided limited feedback, while online reviews contained rich, unstructured data that was difficult to analyze at scale.
+                </p>
+
+                <h3>My Approach</h3>
+                <p>
+                    I developed a comprehensive sentiment analysis pipeline that processed thousands of customer reviews from multiple platforms, categorized feedback by service area, and identified actionable improvement opportunities through statistical analysis and visualization.
+                </p>
+
+                <div class="methodology">
+                    <h3>Methodology</h3>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>Data Collection</h4>
+                            <p>Gathered 5,000+ reviews from airline review platforms and social media</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>Text Processing</h4>
+                            <p>Applied NLP techniques for cleaning, tokenization, and feature extraction</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>Sentiment Classification</h4>
+                            <p>Used machine learning models to classify sentiment and identify themes</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>Visualization</h4>
+                            <p>Created interactive Tableau dashboard for stakeholder insights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Impact & Insights</h3>
+                <p>
+                    The analysis provided Garuda Indonesia with a roadmap for service improvements based on actual customer feedback. Key recommendations included:
+                </p>
+                <ul>
+                    <li><strong>Operational Excellence:</strong> Focus on reducing flight delays through better scheduling and ground operations</li>
+                    <li><strong>Service Training:</strong> Implement targeted cabin crew training programs for consistency</li>
+                    <li><strong>Food & Beverage:</strong> Leverage positive food feedback as a competitive advantage</li>
+                    <li><strong>Route Optimization:</strong> Address service quality variations across different routes</li>
+                    <li><strong>Communication:</strong> Improve passenger communication during disruptions</li>
+                </ul>
+
+                <h3>Technical Achievements</h3>
+                <p>
+                    This project demonstrated advanced NLP capabilities and business intelligence skills, including automated text processing, sentiment classification with 85% accuracy, and creation of actionable business insights from unstructured data.
+                </p>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h4>Project Details</h4>
+                    <p><strong>Duration:</strong> 10 weeks</p>
+                    <p><strong>Team:</strong> Solo project</p>
+                    <p><strong>Type:</strong> Academic/Portfolio Project</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Tools Used</h4>
+                    <p><strong>Analysis:</strong> Python, NLTK, scikit-learn</p>
+                    <p><strong>Visualization:</strong> Tableau</p>
+                    <p><strong>Data Sources:</strong> Review platforms, social media</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Key Metrics</h4>
+                    <p><strong>Reviews Analyzed:</strong> 5,000+</p>
+                    <p><strong>Sentiment Accuracy:</strong> 85%</p>
+                    <p><strong>Service Categories:</strong> 12 identified</p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h4>Links</h4>
+                    <p><a href="https://public.tableau.com/app/profile/celine.widjaja7519/vizzes" target="_blank" style="color: #7877C6;">View on Tableau Public →</a></p>
+                    <p><a href="#" target="_blank" style="color: #7877C6;">View Code on GitHub →</a></p>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

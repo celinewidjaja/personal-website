@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement to Conversion: Strategic Insights from LinguaRisa's User Analysis | Celine Widjaja</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: #fefefe;
+}
+
+.sans {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    color: #7877C6;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-link:hover {
+    color: #2c2c2c;
+    transform: translateX(-5px);
+}
+
+/* Project Header */
+.project-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-title {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+}
+
+.project-tags-header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.tag {
+    background: rgba(120, 119, 198, 0.1);
+    color: #7877C6;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Dashboard Container */
+.dashboard-hero {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin: 3rem 0;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.dashboard-note {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(120, 119, 198, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #7877C6;
+}
+
+.dashboard-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.tableau-container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.tableau-embed {
+    width: 100%;
+    height: 800px;
+    overflow: auto;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.tableauPlaceholder {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    max-width: 100%;
+}
+
+.tableauViz {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.tableau-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: #666;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Project Content */
+.project-content {
+    margin: 4rem 0;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2c2c2c;
+    margin: 2.5rem 0 1rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7877C6;
+    margin: 2rem 0 0.75rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.main-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.main-content strong {
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+/* Analysis Images */
+.analysis-image {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.dashboard-link {
+    display: inline-block;
+    margin: 1rem 0;
+    color: #7877C6;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.dashboard-link:hover {
+    color: #2c2c2c;
+}
+
+.summary-content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c2c2c;
+    margin: 2rem;
+    padding: 2.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.key-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #7877C6;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.summary-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.summary-content p:last-child {
+    margin-bottom: 0;
+}
+
+.summary-content strong {
+    color: #7877C6;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .key-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .executive-summary-box h3 {
+        padding: 2rem 2rem 0 2rem;
+        font-size: 1.7rem;
+    }
+    
+    .summary-content {
+        margin: 1.5rem;
+        padding: 2rem;
+    }
+}
+
+/* Data Structure - simple list format */
+.main-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+/* Caveats Section */
+.caveats {
+    background: rgba(255, 138, 76, 0.05);
+    border-left: 4px solid #FF8A4C;
+    padding: 2rem;
+    border-radius: 0 15px 15px 0;
+    margin: 3rem 0;
+}
+
+.caveats h3 {
+    color: #FF8A4C;
+    margin-bottom: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebar h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7877C6;
+    margin-bottom: 1rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar strong {
+    color: #2c2c2c;
+}
+
+.sidebar a {
+    color: #7877C6;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+
+    .tableau-embed {
+        height: 600px;
+    }
+
+    .data-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .project-tags-header {
+        justify-content: flex-start;
+    }
+    
+    .executive-summary,
+    .data-structure,
+    .caveats {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tableau-embed {
+        height: 400px;
+    }
+}
+
+.analysis-section {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: start; /* Aligns both columns to top */
+}
+
+.analysis-sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    height: fit-content;
+    align-self: start; /* This aligns to top instead of stretching */
+}
+
+.analysis-sidebar h4 {
+    font-size: 1.1rem;
+    color: #7877C6;
+    margin-bottom: 0.75rem; /* Reduced from 0.75rem */
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.analysis-sidebar p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-sidebar li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.analysis-sidebar ul {
+    margin-left: 1rem;
+    margin-bottom: 1rem; /* Reduced from 1rem */
+}
+
+.analysis-sidebar h4:first-child {
+    margin-top: 0;
+}
+
+/* Executive Summary - Improved Design */
+.executive-summary-improved {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #eee;
+    padding: 3rem;
+    border-radius: 20px;
+    margin: 0 0 4rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+
+.executive-summary-improved::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7877C6 0%, #FF8A4C 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.executive-summary-improved h3 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.executive-summary-improved p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Mobile responsive */
+@media (max-width: 968px) {
+    .analysis-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+    <a href="index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+</nav>
+
+<!-- Project Header -->
+<header class="project-header">
+    <h1 class="project-title">Engagement to Conversion: Strategic Insights from LinguaRisa's User Analysis</h1>
+    <div class="project-tags-header">
+        <span class="tag">R</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">ANOVA</span>
+        <span class="tag">Chi-Squared Testing</span>
+        <span class="tag">Logistic Regression</span>
+        <span class="tag">Statistical Analysis</span>
+    </div>
+</header>
+
+<!-- Project Content -->
+<div class="project-content">
+    <main class="main-content">
+
+        <div class="analysis-section">
+            <div class="analysis-content">
+
+                <h2>Background and Overview</h2>
+                <p>
+                    LinguaRisa, founded in 2021, is a global ed-tech company dedicated to teaching the Spanish language through its mobile app. The company has collected data on user demographics, engagement metrics, and subscription behavior across the USA, Germany, and France. The primary goal of this analysis is to understand user behavior by geography and age group to determine whether a targeted marketing campaign is needed.
+                </p>
+
+                <h3>Key Analysis Areas</h3>
+                <p>This analysis addresses four critical questions to guide LinguaRisa's marketing strategy:</p>
+                <ul>
+                    <li><strong>Geographic Patterns:</strong> How do engagement and subscription rates vary across USA, Germany, and France?</li>
+                    <li><strong>Age Demographics:</strong> What age-related differences exist in app usage and conversion rates?</li>
+                    <li><strong>Cross-Market Segmentation:</strong> How do age group behaviors differ by country?</li>
+                    <li><strong>Engagement Drivers:</strong> Which usage metrics best predict subscription likelihood?</li>
+                </ul>
+            </div>
+        
+            <aside class="analysis-sidebar">
+                <h4>Data Structure Overview</h4>
+                <p>Dataset: 2,000 user records, 5 variables:</p>
+                <ul>
+                    <li><strong>Age Group:</strong> Under 18, 18-29, 30-49, 50-64, 65+</li>
+                    <li><strong>Country:</strong> USA, France, Germany</li>
+                    <li><strong>Daily Logins:</strong> Average daily logins</li>
+                    <li><strong>Weekly Practice Hours:</strong> Hours per week</li>
+                    <li><strong>Subscription Status:</strong> Paid vs. free users</li>
+                </ul>
+        
+                <h4>Methodology</h4>
+                <p><strong>Statistical Tests:</strong> ANOVA, Chi-squared, Fisher's exact, T-tests with Bonferroni correction</p>
+                <p><strong>Modeling:</strong> Linear, multiple, and logistic regression</p>
+                <p><strong>Tools:</strong> R (dplyr, ggplot2, car, pROC), Tableau</p>
+            </aside>
+        </div>
+
+        <h2>Findings</h2>
+
+        <h3>1. How do engagement patterns vary across different geographical markets?</h3>
+        <p>
+            While we see some differences in how users across countries engage with LinguaRisa, these differences are quite small. Our analysis shows that being from the USA, France, or Germany explains less than 1% of how often users log in or how long they practice. This means that a user's country has very little influence on their engagement with the app - personal habits and preferences matter far more than location.
+        </p>
+
+        <p>
+            What's particularly interesting is how subscription patterns vary across countries. The USA leads with a 21.7% subscription rate, followed by France at 17.9%, while Germany trails at 13.8%. However, here's the surprising part: European users, especially in Germany and France, tend to be more engaged with the app than US users, yet they're less likely to subscribe.
+        </p>
+
+        <p>
+            Looking at the differences between subscribers and non-subscribers in each country:
+        </p>
+
+        <ul>
+            <li>In Germany, subscribers are notably more active, logging in more frequently (+0.41 times per day) and practicing longer (+0.30 hours per week) than non-subscribers.</li>
+            <li>French subscribers log in somewhat more often (+0.27 times per day) but barely practice more (+0.04 hours per week).</li>
+            <li>US subscribers show moderate increases in both metrics (+0.31 logins, +0.07 hours).</li>
+        </ul>
+
+        <img src="country_view.png" alt="Geographic Engagement Analysis" class="analysis-image">
+
+        <a href="https://public.tableau.com/views/LinguaRisaEngagementtoConversion/SubscriptionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="dashboard-link">View the full interactive dashboard →</a>
+
+        <h3>2. What are the key age-related differences in app usage and subscription?</h3>
+        <p>
+            Young adults (18-29) are our most frequent users, with their usage notably different from both middle-aged users and seniors. The biggest difference in daily app usage is between young adults and seniors (65+), showing that these age groups have very different patterns of engaging with LinguaRisa. However, these differences in daily logins are relatively modest, ranging from about 3.6 logins per day for younger users to 3.2 for seniors.
+        </p>
+
+        <p>
+            Practice time shows much stronger age-related patterns, gradually decreasing with age. Young adults (18-29) practice the most, averaging 4.6 hours per week. Seniors (65+) practice the least, averaging 3.2 hours per week. This decline in practice time becomes more pronounced as age increases. What's interesting is that despite practicing less, older users are more likely to subscribe. The 50-64 age group leads with a 23.8% subscription rate. Young adults (18-29), our most active users, have the lowest subscription rate at 13.7%. Middle-aged users (30-49) maintain a healthy 21.1% subscription rate. Seniors (65+) keep a moderate 18.8% subscription rate.
+        </p>
+
+        <img src="age_view.png" alt="Age-Related Usage Patterns" class="analysis-image">
+
+        <a href="https://public.tableau.com/views/LinguaRisaEngagementtoConversion/SubscriptionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="dashboard-link">View the full interactive dashboard →</a>
+
+        <h3>3. How does engagement patterns differ between age groups across countries?</h3>
+        <p>
+            The age makeup of our user base is remarkably similar across all three countries. This consistent age distribution means that any differences we see in country performance aren't due to having different age groups dominating different markets. Teenagers (Under 18), older adults (50-64), and seniors (65+) demonstrate very consistent patterns regardless of country. Middle-Aged Users (30-49) are the only group of users showing meaningful differences in subscription behavior across countries.
+        </p>
+
+        <img src="country_and_age_view.png" alt="Cross-Country Age Group Analysis" class="analysis-image">
+
+        <a href="https://public.tableau.com/views/LinguaRisaEngagementtoConversion/SubscriptionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="dashboard-link">View the full interactive dashboard →</a>
+
+        <h3>4. How do usage intensity metrics correlate with subscription status?</h3>
+        <p>
+            The difference between subscribers and non-subscribers is most evident in how often they use the app. Subscribers log in more frequently: 3.74 times per day, while non-subscribers log in less often: 3.44 times per day. This pattern is consistent and reliable across all user groups. Overall, subscribers show more consistent usage patterns. When it comes to how long users spend practicing, there isn't a big difference between subscribers (4.39 hours per week) and non-subscribers (4.28 hours per week). Our analysis reveals a surprising insight: how often someone uses the app is more important than how long they spend using it. Each additional daily login increases subscription likelihood by 39.1%. When we look at both metrics together, only login frequency remains significant. The predictive power of daily logins (58.2% accuracy) is notably stronger than practice time (53.1% accuracy). Even combining both metrics only achieves 58.4% prediction accuracy.
+        </p>
+
+        <img src="subscription_view.png" alt="Engagement-Conversion Correlation Analysis" class="analysis-image">
+
+        <a href="https://public.tableau.com/views/LinguaRisaEngagementtoConversion/SubscriptionDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" class="dashboard-link">View the full interactive dashboard →</a>
+
+        <h2>Recommendations</h2>
+        <p><strong>1. Avoid country-specific strategies:</strong> Successful subscription strategies should focus more on understanding and responding to individual user behaviors and preferences rather than creating broad country-specific approaches. A particularly interesting topic for further investigation is why highly engaged users from Germany and France are not converting to paid subscriptions at the same rate as their American counterparts.</p>
+
+        <p><strong>2. Potential customization for 30-49 age-group in country-specific strategies:</strong> The 30-49 age group show the most variation in behavior across markets. For all other age groups, particularly younger and older users, a unified approach across countries could be more efficient and equally effective.</p>
+
+        <p><strong>3. Improve conversion rates among younger users:</strong> We're very successful at engaging younger users, but less successful at converting them to paid subscribers. This is true for the 18-29 age group, particularly in France and Germany, where subscription rates are low despite high engagement. This suggests an opportunity to better understand what would motivate young adults to subscribe.</p>
+
+        <p><strong>4. Focus customer acquisition strategies on older users:</strong> Customer acquisition strategies should focus on those in the 50-64 age group as they are most likely to subscribe.</p>
+
+        <p><strong>5. Focus on features that encourage daily engagement rather than longer practice sessions:</strong> Create habits around daily app usage to increase the likelihood of conversion.</p>
+
+        <p><strong>6. Invest in capturing more user behavior data for more valuable analysis:</strong> Gather more data to find factors that play a bigger role in predicting subscriptions.</p>
+
+        <div class="caveats">
+            <h3>Caveats & Assumptions</h3>
+            <p>
+                This analysis, while informative, comes with several important limitations to consider. Our dataset is limited to basic metrics (age, country, daily logins, and weekly practice hours) and lacks crucial contextual information such as user satisfaction, learning progress, pricing sensitivity, and acquisition channels. Being cross-sectional, we cannot track how engagement patterns evolve over time or identify seasonal trends. The analysis assumes straightforward relationships between variables and normal distribution patterns, which may oversimplify complex user behaviors. Some demographic segments, particularly the 65+ age group, have smaller sample sizes that could affect statistical reliability. We also lack important context about user characteristics (prior language experience, learning goals, income levels), product experience (feature usage, technical issues), and external factors (local market conditions, cultural differences, economic factors). Additionally, our data comes from only three countries, which may not represent global patterns, and we have no information about user churn or subscription renewal rates. The models' relatively low predictive power suggests that subscription decisions are influenced by many unmeasured factors. These limitations should be considered when implementing recommendations and highlight areas where additional data collection could provide valuable insights.
+            </p>
+        </div>
+    </main>
+</div>
+</div>
+</body>
+</html>
