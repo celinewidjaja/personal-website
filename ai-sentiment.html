@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ChatGPT Effect: Analyzing Reddit's Shifting Perspectives on Artificial Intelligence | Portfolio</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: #fefefe;
+}
+
+.sans {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    color: #7877C6;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-link:hover {
+    color: #2c2c2c;
+    transform: translateX(-5px);
+}
+
+/* Project Header */
+.project-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-title {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+}
+
+.project-tags-header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.tag {
+    background: rgba(120, 119, 198, 0.1);
+    color: #7877C6;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Project Content */
+.project-content {
+    margin: 4rem 0;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2c2c2c;
+    margin: 2.5rem 0 1rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7877C6;
+    margin: 2rem 0 0.75rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.main-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.main-content strong {
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+/* Analysis Images */
+.analysis-image {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.dashboard-link {
+    display: inline-block;
+    margin: 1rem 0;
+    color: #7877C6;
+    text-decoration: none;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.dashboard-link:hover {
+    color: #2c2c2c;
+}
+
+.key-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #7877C6;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .key-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Caveats Section */
+.limitations {
+    background: rgba(255, 138, 76, 0.05);
+    border-left: 4px solid #FF8A4C;
+    padding: 2rem;
+    border-radius: 0 15px 15px 0;
+    margin: 3rem 0;
+}
+
+.limitations h3 {
+    color: #FF8A4C;
+    margin-bottom: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebar h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #7877C6;
+    margin-bottom: 1rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar strong {
+    color: #2c2c2c;
+}
+
+.sidebar a {
+    color: #7877C6;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.analysis-section {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: start;
+}
+
+.analysis-sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    height: fit-content;
+    align-self: start;
+}
+
+.analysis-sidebar h4 {
+    font-size: 1.1rem;
+    color: #7877C6;
+    margin-bottom: 0.75rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.analysis-sidebar p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-sidebar li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.analysis-sidebar ul {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.analysis-sidebar h4:first-child {
+    margin-top: 0;
+}
+
+/* Executive Summary - Improved Design */
+.executive-summary-improved {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #eee;
+    padding: 3rem;
+    border-radius: 20px;
+    margin: 0 0 4rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.executive-summary-improved::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7877C6 0%, #FF8A4C 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.executive-summary-improved h3 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.executive-summary-improved p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Mobile responsive */
+@media (max-width: 968px) {
+    .analysis-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .project-tags-header {
+        justify-content: flex-start;
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+    <a href="index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+</nav>
+
+<!-- Project Header -->
+<header class="project-header">
+    <h1 class="project-title">The ChatGPT Effect: Analyzing Reddit's Shifting Perspectives on Artificial Intelligence</h1>
+    <p class="project-subtitle">A comprehensive analysis of how public discourse surrounding AI's socioeconomic impacts evolved on Reddit from 2021-2025</p>
+    <div class="project-tags-header">
+        <span class="tag">R</span>
+        <span class="tag">NLP</span>
+        <span class="tag">LDA Topic Modeling</span>
+        <span class="tag">Sentiment Analysis</span>
+        <span class="tag">Statistical Testing</span>
+        <span class="tag">Time Series Analysis</span>
+        <span class="tag">Reddit Data Mining</span>
+    </div>
+</header>
+
+<!-- Download Section -->
+<section style="margin-bottom: 3rem;">
+    <div class="container">
+        <div style="text-align: center;">
+            <a href="CelineWidjaja-AISentimentShiftsRedditAnalysis.pdf" download class="download-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 0.5rem;">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Download and View as PPT
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Executive Summary -->
+<section class="executive-summary-improved">
+    <h3>Executive Summary</h3>
+    <p>This research investigates how public discourse surrounding artificial intelligence's socioeconomic impacts evolved on Reddit since ChatGPT's release. Through analysis of 3,879 Reddit posts across 10 subreddits from January 2021 to April 2025, the study reveals significant shifts in public perspectives. Key findings show AI discourse matured from technical speculation to lived reality, with power concentration concerns dominating (80.3% post-ChatGPT), job displacement concerns more than doubling in 2024+ (23.7%), and overall sentiment remaining positive (67%) despite initial apprehension. The research employs LDA topic modeling, sentiment analysis, and statistical validation to provide empirical insights for policymakers, corporations, and researchers navigating AI's societal integration.</p>
+</section>
+
+<!-- Project Content -->
+<div class="project-content">
+    <main class="main-content">
+
+        <div class="analysis-section">
+            <div class="analysis-content">
+
+                <h2>Research Problem & Methodology</h2>
+                <p>
+                    This research addresses three critical questions about AI discourse evolution: To what measurable extent have the popularity and framing of popular socioeconomic concerns shifted? What dominant topics characterize AI discourse across the three time periods, and how do sentiment and emotional patterns vary between these emergent topics? How have sentiment and emotions in AI-related subreddits evolved from pre-ChatGPT to post-mainstreaming periods?
+                </p>
+
+                <h3>Data Collection & Scope</h3>
+                <p>The study analyzes Reddit posts from January 2021 to April 2025, covering discourse before and after ChatGPT's release. Data was collected from 10 subreddits across three domains: AI-focused (r/ChatGPT, r/MachineLearning, r/ArtificialIntelligence), Economic (r/Economics, r/technology), and Ethical (r/EffectiveAltruism, r/singularity). The dataset focuses on socioeconomic factors with emphasis on job displacement, economic inequality, and power concentration as primary AI-related concerns.</p>
+
+                <div class="key-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3,879</span>
+                        <span class="stat-label">Reddit Posts Analyzed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Subreddits Covered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4+ Years</span>
+                        <span class="stat-label">Timeline Analyzed</span>
+                    </div>
+                </div>
+            </div>
+        
+            <aside class="analysis-sidebar">
+                <h4>Temporal Classification</h4>
+                <ul>
+                    <li><strong>Pre-ChatGPT:</strong> 3.8% (Before Nov 2022)</li>
+                    <li><strong>Early Adoption:</strong> 8.8% (Nov 2022–Dec 2023)</li>
+                    <li><strong>Mainstream:</strong> 87.4% (Jan 2024–Present)</li>
+                </ul>
+        
+                <h4>Data Acquisition</h4>
+                <p><strong>Source:</strong> Reddit API via RedditExtractoR package</p>
+                <p><strong>Collection Period:</strong> January 2021 - April 2025</p>
+                <p><strong>Subreddits:</strong> 10 communities across AI, economic, and ethical domains</p>
+                <p><strong>Retry Logic:</strong> Custom error handling for robust data collection</p>
+
+                <h4>Methodology</h4>
+                <p><strong>Topic Modeling:</strong> LDA for organic topic discovery</p>
+                <p><strong>Sentiment Analysis:</strong> Bing & NRC lexicons</p>
+                <p><strong>Statistical Tests:</strong> Chi-squared, Kruskal-Wallis, ANOVA</p>
+                <p><strong>Tools:</strong> R (RedditExtractoR, dplyr, ggplot2)</p>
+            </aside>
+        </div>
+
+        <h2>Key Findings</h2>
+
+        <h3>1. Emotional Landscape: Sentiment Evolution</h3>
+        <p>
+            Our analysis reveals that while general sentiment about AI remained positive (63-67%), the public showed initial apprehension when AI first entered the mainstream market. Negative sentiment surged from 15% pre-ChatGPT to 26% immediately following its launch. However, as the public gained familiarity with the technology, negative sentiment decreased to 19% in the 2024+ period, while positive sentiment increased to 67%.
+        </p>
+
+        <p>
+            Notably, while positive sentiment increased, there were fewer expressions of anticipation, trust, and joy in the 2024+ period. Those who did express emotions did so with higher emotional intensity, suggesting normalization of AI while maintaining emotional investment among engaged users.
+        </p>
+
+        <h3>2. Power Concentration Dominates Discourse</h3>
+        <p>
+            Power concentration concerns dominate AI discourse across all periods, peaking post-ChatGPT at 80.3%. However, conversations have shifted from emotionally charged to more measured and analytical approaches. Simultaneously, job displacement concerns more than doubled in 2024 to 23.7%, while once-intense economic inequality discussions diminished as public attention redirected to other AI impacts.
+        </p>
+
+        <h3>3. From Technical Implementation to Personal Experience</h3>
+        <p>
+            The most striking evolution in AI discourse is the shift from technical implementation discussions (39% pre-ChatGPT) to personal engagement experiences (25% in 2024+). This transformation represents AI's evolution from a niche technology to a mainstream social and economic force affecting daily life.
+        </p>
+
+        <p>
+            Professional conversations now dominate almost all topics in the post-ChatGPT era, moving public AI discussions beyond technical domains into broader community contexts. Technical topics show the most dramatic emotional changes, with higher emotional intensity as conversations become more personal.
+        </p>
+
+        <h2>Stakeholder Implications</h2>
+
+        <h4>For Policymakers</h4>
+        <p>Persistent power concentration and job displacement concerns demand governance frameworks addressing corporate control and workforce transitions. The measured shift in discourse tone suggests public readiness for nuanced policy discussions.</p>
+
+        <h4>For Corporations</h4>
+        <p>Businesses should prioritize transparency and clear communication about employment impacts. The rise in personal experience discussions indicates the need for user-centered AI development and workforce development requiring urgent reskilling initiatives.</p>
+
+        <h4>For Researchers</h4>
+        <p>Future research should expand analysis to include more diverse platforms and demographics, investigating how specific AI policies and corporate practices influence public discourse. The emotional intensity findings suggest deeper psychological impacts worth exploring.</p>
+
+        <div class="limitations">
+            <h3>Study Limitations & Future Directions</h3>
+            <p>
+                This analysis represents English-language Reddit discourse, which may reflect perspectives predominantly from English-speaking regions. The study focused on three core socioeconomic factors and could benefit from expanded scope including privacy risks, algorithmic bias, and AI security implications. Given limited data in early periods affecting predictive models, future work should employ advanced techniques for imbalanced datasets and correlate discourse shifts with specific external events using more sophisticated temporal modeling.
+            </p>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>
+            As AI rapidly integrates into society, our analysis reveals a public discourse that has matured from technical speculation to lived reality, with evolving concerns and deepening emotional engagement. The shift from power concentration concerns to job displacement, combined with the move from technical to personal discourse, signals a critical moment requiring thoughtful responses from policymakers, corporations, and researchers. This empirical understanding enables evidence-based approaches to technological integration that address actual societal concerns rather than presumed narratives.
+        </p>
+    </main>
+</div>
+</div>
+</body>
+</html>

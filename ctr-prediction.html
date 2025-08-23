@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Advertising Performance Optimization: Predictive Analytics for CTR Enhancement | Celine Widjaja</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background: #fefefe;
+}
+
+.sans {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.breadcrumb {
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 3rem;
+}
+
+.back-link {
+    color: #7877C6;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-link:hover {
+    color: #2c2c2c;
+    transform: translateX(-5px);
+}
+
+/* Project Header */
+.project-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-title {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+}
+
+.project-tags-header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.tag {
+    background: rgba(120, 119, 198, 0.1);
+    color: #7877C6;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* GitHub Button */
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #7877C6, #FF8A4C);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(120, 119, 198, 0.3);
+}
+
+.github-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(120, 119, 198, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.github-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.github-btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* Project Content */
+.project-content {
+    margin: 4rem 0;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2c2c2c;
+    margin: 2.5rem 0 1rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7877C6;
+    margin: 2rem 0 0.75rem 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.main-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.main-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.main-content strong {
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+/* Executive Summary */
+.executive-summary-improved {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #eee;
+    padding: 3rem;
+    border-radius: 20px;
+    margin: 0 0 4rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.executive-summary-improved::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7877C6 0%, #FF8A4C 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.executive-summary-improved h3 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.executive-summary-improved p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    text-align: left;
+}
+
+/* Key Stats */
+.key-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #7877C6;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Analysis Section */
+.analysis-section {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: start;
+}
+
+.analysis-sidebar {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    height: fit-content;
+    align-self: start;
+}
+
+.analysis-sidebar h4 {
+    font-size: 1.1rem;
+    color: #7877C6;
+    margin-bottom: 0.75rem;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.analysis-sidebar p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.analysis-sidebar li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.analysis-sidebar ul {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.analysis-sidebar h4:first-child {
+    margin-top: 0;
+}
+
+/* Model Performance Table */
+.model-table {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.model-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.model-table th {
+    background: rgba(120, 119, 198, 0.1);
+    color: #7877C6;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 2px solid #7877C6;
+}
+
+.model-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.model-table tr:hover {
+    background: rgba(120, 119, 198, 0.05);
+}
+
+.best-model {
+    background: rgba(120, 119, 198, 0.1);
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+/* Limitations Section */
+.limitations {
+    background: rgba(255, 138, 76, 0.05);
+    border-left: 4px solid #FF8A4C;
+    padding: 2rem;
+    border-radius: 0 15px 15px 0;
+    margin: 3rem 0;
+}
+
+.limitations h3 {
+    color: #FF8A4C;
+    margin-bottom: 1rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 968px) {
+    .analysis-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .key-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .project-tags-header {
+        justify-content: flex-start;
+    }
+
+    .key-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .model-table {
+        padding: 1rem;
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb">
+    <a href="index.html" class="back-link">
+        ← Back to Portfolio
+    </a>
+</nav>
+
+<!-- Project Header -->
+<header class="project-header">
+    <h1 class="project-title">Digital Advertising Performance Optimization</h1>
+    <p class="project-subtitle">Predictive Analytics for Click-Through Rate Enhancement</p>
+    <div class="project-tags-header">
+        <span class="tag">R</span>
+        <span class="tag">Python</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">Random Forest</span>
+        <span class="tag">GAM</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Predictive Analytics</span>
+    </div>
+</header>
+
+<!-- GitHub Section -->
+<section style="margin-bottom: 3rem;">
+    <div style="text-align: center;">
+        <a href="https://github.com/celinewidjaja/predicting_ad_click-through_rate" target="_blank" class="github-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View Code on GitHub
+        </a>
+    </div>
+</section>
+
+<!-- Executive Summary -->
+<section class="executive-summary-improved">
+    <h3>Executive Summary</h3>
+    <p>Analysis of digital advertising campaign data reveals that visual appeal is the strongest predictor of CTR (0.561 correlation), followed by targeting precision (0.394 correlation). Four key variables demonstrate important non-linear relationships with CTR: targeting score, visual appeal, CTA strength, and headline length. Mobile devices dominate traffic (69.7%), with peak engagement during afternoon hours (1,585 impressions). The analysis highlights the importance of optimizing visual content and targeting while considering temporal patterns in engagement. These insights led to a predictive model achieving strong performance (cross-validation RMSE: 0.05903), significantly improving upon baseline predictions.</p>
+</section>
+
+<!-- Project Content -->
+<div class="project-content">
+    <main class="main-content">
+
+        <div class="analysis-section">
+            <div class="analysis-content">
+
+                <h2>Project Overview</h2>
+                <p>
+                    This analysis develops a machine learning solution to predict and optimize Click-Through Rates (CTR) for digital advertising campaigns. Using comprehensive campaign data including ad characteristics, audience demographics, and engagement metrics, we've created a predictive model that helps maximize advertising ROI through data-driven targeting and content optimization.
+                </p>
+
+                <div class="key-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">0.561</span>
+                        <span class="stat-label">Visual Appeal Correlation</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">69.7%</span>
+                        <span class="stat-label">Mobile Traffic</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0.059</span>
+                        <span class="stat-label">Final Model RMSE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Model Types Tested</span>
+                    </div>
+                </div>
+
+                <h3>Data Structure & Features</h3>
+                <p>The dataset analyzes ad campaign performance across multiple dimensions, providing comprehensive insights into digital advertising effectiveness:</p>
+
+                <h4>Ad Quality Metrics</h4>
+                <ul>
+                    <li><strong>Visual Appeal:</strong> 1-10 scale measuring aesthetic quality</li>
+                    <li><strong>Targeting Score:</strong> 1-10 scale measuring audience precision</li>
+                    <li><strong>CTA Strength:</strong> 1-10 scale measuring call-to-action effectiveness</li>
+                    <li><strong>Contextual Relevance:</strong> Binary indicator of content-context alignment</li>
+                </ul>
+
+                <h4>Content Characteristics</h4>
+                <ul>
+                    <li><strong>Headline Length:</strong> Character count optimization</li>
+                    <li><strong>Body Readability:</strong> 1-100 score measuring content clarity</li>
+                    <li><strong>Ad Format:</strong> Image, Video, or Text-based content</li>
+                    <li><strong>Position on Page:</strong> Placement impact analysis</li>
+                </ul>
+            </div>
+        
+            <aside class="analysis-sidebar">
+                <h4>Technology Stack</h4>
+                <ul>
+                    <li><strong>R:</strong> Primary analysis language</li>
+                    <li><strong>Python:</strong> Data preprocessing</li>
+                    <li><strong>XGBoost:</strong> Final model implementation</li>
+                    <li><strong>GAM:</strong> Non-linear relationship modeling</li>
+                    <li><strong>Random Forest:</strong> Feature importance analysis</li>
+                </ul>
+        
+                <h4>Key Techniques</h4>
+                <ul>
+                    <li><strong>Feature Selection:</strong> LASSO, Ridge, PCA</li>
+                    <li><strong>Imputation:</strong> Bag imputation for missing values</li>
+                    <li><strong>Cross-Validation:</strong> Model performance validation</li>
+                    <li><strong>Ensemble Methods:</strong> Bagging and boosting</li>
+                </ul>
+
+                <h4>Model Performance</h4>
+                <p><strong>Best Model:</strong> XGBoost</p>
+                <p><strong>Cross-Validation RMSE:</strong> 0.05903</p>
+                <p><strong>Improvement:</strong> 44% better than baseline</p>
+            </aside>
+        </div>
+
+        <h2>Model Development Journey</h2>
+        <p>Through iterative refinement, our modeling approach evolved from simple linear regression to sophisticated ensemble methods, each step revealing new insights about the data structure and optimal prediction strategies.</p>
+
+        <div class="model-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Cross-Validation RMSE</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Linear Regression</td>
+                        <td>0.1058</td>
+                        <td>Baseline model with linear relationships</td>
+                    </tr>
+                    <tr>
+                        <td>Polynomial Linear Model</td>
+                        <td>0.0654</td>
+                        <td>Added polynomial terms for non-linearity</td>
+                    </tr>
+                    <tr>
+                        <td>GAM</td>
+                        <td>0.0679</td>
+                        <td>Smooth functions for complex patterns</td>
+                    </tr>
+                    <tr>
+                        <td>Bagging</td>
+                        <td>0.0731</td>
+                        <td>Bootstrap aggregation for variance reduction</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest</td>
+                        <td>0.0645</td>
+                        <td>Feature randomization and ensemble voting</td>
+                    </tr>
+                    <tr class="best-model">
+                        <td>XGBoost</td>
+                        <td>0.0590</td>
+                        <td>Gradient boosting with optimal hyperparameters</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Key Insights</h2>
+
+        <h3>1. Visual Content Dominates Performance</h3>
+        <p>
+            Visual appeal emerged as the strongest predictor of CTR with a correlation of 0.561, significantly outperforming traditional metrics like ad placement. This finding challenges conventional wisdom that emphasizes positioning over content quality. The non-linear relationship suggests optimal visual quality ranges rather than simple linear improvements, indicating diminishing returns at the highest quality levels.
+        </p>
+
+        <h3>2. Targeting Precision Shows Optimal Ranges</h3>
+        <p>
+            Targeting score demonstrated the second-highest impact (0.394 correlation) but with clear non-linear behavior. Performance peaks in the 7-9 range, with diminishing returns beyond optimal targeting levels. This suggests over-targeting can be counterproductive, possibly due to audience limitations or increased competition costs.
+        </p>
+
+        <h3>3. Mobile-First Engagement Patterns</h3>
+        <p>
+            Device usage patterns reveal mobile dominance at 69.7% of traffic, with desktop at 28.3% and tablets at just 2%. Peak engagement occurs during afternoon hours (1,585 impressions), followed by morning (1,189 impressions). These patterns emphasize the critical importance of mobile optimization and strategic timing in campaign deployment.
+        </p>
+
+        <h3>4. Content Optimization Opportunities</h3>
+        <p>
+            Headline length demonstrates an optimal range around 29 characters, balancing brevity with information completeness. Body content maintains strong readability with a mean score of 74.87, while video format emerged as a particularly strong performer. CTA strength shows complex non-linear behavior, requiring careful optimization rather than simple maximization.
+        </p>
+
+        <h2>Strategic Recommendations</h2>
+
+        <h4>1. Visual Content Strategy</h4>
+        <ul>
+            <li>Prioritize high-resolution and aesthetically pleasing images with A/B testing for refinement</li>
+            <li>Regularly update visuals to maintain audience interest and reduce ad fatigue</li>
+            <li>Ensure alignment between visuals and messaging to enhance contextual relevance</li>
+        </ul>
+
+        <h4>2. Targeting Optimization</h4>
+        <ul>
+            <li>Invest in real-time audience segmentation based on browsing patterns and demographics</li>
+            <li>Maintain targeting precision within the optimal score range (7-9) to maximize CTR</li>
+            <li>Reassess audience definitions quarterly to adjust to market behavior shifts</li>
+        </ul>
+
+        <h4>3. Content Refinement</h4>
+        <ul>
+            <li>Limit headline length to around 29 characters, balancing brevity and clarity</li>
+            <li>Employ readability analysis tools to ensure ad copy scores above 70</li>
+            <li>Incorporate multimedia formats (videos) for complex messages or promotions</li>
+        </ul>
+
+        <h4>4. Timing & Device Strategy</h4>
+        <ul>
+            <li>Focus scheduling during peak hours (12 PM - 3 PM) for maximum engagement</li>
+            <li>Optimize campaigns for mobile-first experiences given 69.7% mobile usage</li>
+            <li>Diversify targeting across high-performing geographic regions (South, Midwest)</li>
+        </ul>
+
+        <h4>5. Continuous Monitoring</h4>
+        <ul>
+            <li>XGBoost highlights the dynamic nature of CTR variables, requiring ongoing refinement</li>
+            <li>Implement feedback loops where campaign performance informs future model training</li>
+            <li>Monitor campaigns regularly and adjust strategies based on performance metrics</li>
+        </ul>
+
+        <div class="limitations">
+            <h3>Caveats & Assumptions</h3>
+            <p>
+                The analysis assumes consistent measurement of subjective metrics like visual appeal and targeting score. The model's performance may vary with changes in market conditions or consumer behavior. Geographic and demographic patterns might reflect current campaign targeting rather than inherent preferences. Additional data on user behavior and long-term engagement would strengthen these findings. The model should be retrained regularly as digital advertising landscapes evolve rapidly.
+            </p>
+        </div>
+
+        <h2>Technical Implementation</h2>
+        <p>
+            The complete codebase is available on GitHub, including data preprocessing scripts, model implementations, and evaluation frameworks. The repository includes requirements files for both R and Python environments, making it easy to reproduce results and adapt the methodology to new datasets.
+        </p>
+
+        <p>
+            Key technical highlights include sophisticated feature engineering, comprehensive cross-validation frameworks, and modular code structure that enables easy experimentation with different algorithms and hyperparameters.
+        </p>
+    </main>
+</div>
+</div>
+</body>
+</html>
