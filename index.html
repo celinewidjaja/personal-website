@@ -243,8 +243,10 @@
             position: relative;
             z-index: 3;
             height: 100vh;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto;
             align-items: center;
+            gap: 2rem;
         }
 
         .hero-bg {
@@ -257,17 +259,12 @@
         }
 
         .hero-avatar {
-            position: absolute;
-            top: 50%;
-            right: clamp(8rem, 25vw, 20rem);
-            width: 550px;
-            height: 100%;
+            position: relative;
+            width: clamp(300px, 40vw, 550px);
+            height: clamp(400px, 70vh, 80vh);
+            overflow: hidden;
             z-index: 3;
-            background: none;
-            border: none;
-            box-shadow: none;
-            outline: none;
-            transform: translateY(-50%);
+            justify-self: end;
         }
 
         .photo-container {
@@ -297,7 +294,7 @@
         .portrait-photo img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center top;
             background: none;
             border: none;
@@ -311,7 +308,8 @@
             position: relative;
             z-index: 5;
             color: white;
-            max-width: 65%;
+            max-width: none;
+            padding-right: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1134,104 +1132,31 @@
         }
 
         /* Responsive Design - Mobile First */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .hero-avatar {
-                right: clamp(6rem, 20vw, 16rem);
-                width: 480px;
-            }
-            
-            .experience-grid {
-                grid-template-columns: 1fr 2fr;
-                padding: 2rem;
+                width: clamp(280px, 35vw, 450px);
+                height: clamp(500px, 85vh, 90vh);
             }
         }
 
         @media (max-width: 768px) {
-            .col-8, .col-6, .col-4, .col-3, .col-9 { 
-                grid-column: span 12; 
-            }
-            
             .hero-avatar {
-                position: relative;
-                top: auto;
-                right: auto;
-                width: 350px;
-                height: 70vh;
-                margin: 2rem auto 0;
-                transform: none;
+                display: none;
             }
             
-            .hero-text-container {
-                max-width: 90%;
+            .hero-content {
+                grid-template-columns: 1fr; /* Single column when image is hidden */
+                justify-content: center;
             }
-            
-            .hero-name {
-                font-size: clamp(3rem, 15vw, 6rem);
-                line-height: 0.9;
-            }
-            
-            .hero-title {
-                font-size: clamp(1rem, 3vw, 1.6rem);
-            }
+        }
 
-            .hero-subtitle {
-                font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        @media (max-height: 500px), (max-width: 600px) {
+            .hero-avatar {
+                display: none;
             }
             
-            .hero-scroll {
-                bottom: 1rem;
-                right: 1rem;
-            }
-            
-            .experience-grid {
+            .hero-content {
                 grid-template-columns: 1fr;
-                padding: 1.5rem;
-            }
-            
-            .timeline-item {
-                padding-left: 2rem;
-            }
-            
-            .nav-links a {
-                font-size: 2rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 2rem;
-            }
-            
-            /* Project Cards Mobile */
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .project-content {
-                padding: 1.5rem;
-            }
-            
-            .project-image {
-                height: 180px;
-            }
-            
-            /* Currently Section Mobile */
-            .currently-container {
-                padding: 1.5rem;
-            }
-            
-            .currently-grid {
-                gap: 1rem;
             }
         }
     </style>
@@ -1258,15 +1183,6 @@
         <!-- Data particles will be added by JavaScript -->
     </div>
     
-    <div class="hero-avatar">
-        <div class="photo-container">
-            <!-- Your Portrait Photo - Clean, No Border -->
-            <div class="portrait-photo">
-                <img src="portrait.png" alt="Celine Widjaja">
-            </div>
-        </div>
-    </div>
-    
     <div class="container">
         <div class="hero-content">
             <div class="hero-text-container">
@@ -1278,6 +1194,14 @@
                     <span>→</span>
                 </a>
             </div>
+            <div class="hero-avatar">
+                <div class="photo-container">
+                    <!-- Your Portrait Photo - Clean, No Border -->
+                    <div class="portrait-photo">
+                        <img src="portrait.png" alt="Celine Widjaja">
+                    </div>
+                </div>
+            </div>        
         </div>
     </div>
     
