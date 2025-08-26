@@ -1169,40 +1169,38 @@
             }
 
             .hero .hero-content {
-                display: flex !important; /* Use flex instead of block */
-                flex-direction: column !important; /* Stack vertically */
-                align-items: flex-start; /* Left align everything */
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start;
                 text-align: left;
-                height: auto; /* Allow natural height */
-                min-height: 100vh; /* Still fill viewport */
-                justify-content: center; /* Center vertically for better spacing */
-                padding-top: 1rem; /* Less top padding */
-                gap:0; /* Consistent spacing between elements */
+                height: auto;
+                min-height: 100vh;
+                justify-content: center;
+                padding-top: 1rem;
+                gap: 0; /* Keep this */
+                margin: 0; /* Ensure no container margins */
             }
             
             .hero .hero-avatar {
                 display: block !important;
-                order: 1; /* Image appears first */
-                width: 250px; /* Smaller, more proportional */
-                height: 200px; /* Smaller height */
-                margin-top: -1rem;
-                margin-bottom: 0; /* Remove bottom margin, gap handles spacing */
-                margin-left: 0;
-                margin-right: auto;
-                justify-self: flex-start; /* Left align */
-                align-self: flex-start; /* Left align */
+                order: 1;
+                width: clamp(180px, 45vw, 250px);
+                height: 240px; /* Fixed height as discussed */
+                margin: 0; /* Remove ALL margins */
+                padding: 0; /* Remove any padding */
             }
             
             .hero .hero-text-container {
-                order: 2; /* Text appears second */
+                order: 2;
                 padding-right: 0;
                 max-width: 100%;
                 text-align: left;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                height: auto; /* Remove fixed height */
-                gap: 1.5rem; /* Increased spacing between text elements */
+                height: auto;
+                gap: 1.5rem;
+                margin-top: 1rem; /* Pull text up to close gap */
             }
             
             .hero .hero-name {
@@ -2038,4 +2036,4 @@
         });
     </script>
 </body>
-</html>            
+</html>                       
