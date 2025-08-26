@@ -1319,6 +1319,33 @@
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
+
+            /* Contact section mobile */
+            .contact-grid {
+                display: block !important; /* Stack vertically instead of grid */
+                gap: 2rem;
+            }
+
+            .contact-grid > div {
+                margin-bottom: 2rem;
+            }
+
+            .contact-grid > div:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Adjust contact section padding on mobile */
+            .contact {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+
+            /* Make contact links more touch-friendly */
+            .contact-links a {
+                padding: 0.5rem 0;
+                display: block;
+                font-size: 1rem;
+            }
         }
 
         /* For very small screens */
@@ -1399,6 +1426,37 @@
                 display: block !important;
                 margin-bottom: 8px !important;
                 margin-right: 0 !important;
+            }
+
+            .contact-grid {
+                display: block !important;
+                gap: 1.5rem; /* Slightly less gap for small screens */
+            }
+
+            .contact-grid > div {
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-grid > div:last-child {
+                margin-bottom: 0;
+            }
+
+            /* Tighter contact section padding */
+            .contact {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+            }
+
+            /* Contact links for small screens */
+            .contact-links a {
+                padding: 0.4rem 0;
+                display: block;
+                font-size: 0.95rem; /* Slightly smaller text */
+            }
+
+            /* Reduce section title spacing */
+            .contact h4 {
+                margin-bottom: 0.75rem;
             }
         }
     </style>
@@ -1978,4 +2036,4 @@
         });
     </script>
 </body>
-</html>                       
+</html>                
