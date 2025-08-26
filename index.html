@@ -1183,8 +1183,9 @@
             .hero .hero-avatar {
                 display: block !important;
                 order: 1; /* Image appears first */
-                width: clamp(180px, 45vw, 250px); /* Smaller, more proportional */
-                height: clamp(220px, 40vh, 300px); /* Smaller height */
+                width: 250px; /* Smaller, more proportional */
+                height: 200px; /* Smaller height */
+                margin-top: -1rem;
                 margin-bottom: 0; /* Remove bottom margin, gap handles spacing */
                 margin-left: 0;
                 margin-right: auto;
@@ -1377,6 +1378,7 @@
                 margin-right: auto;
                 justify-self: flex-start; /* Left align */
                 align-self: flex-start; /* Left align */
+                gap:0;
             }
             
             .hero .hero-text-container {
@@ -2036,4 +2038,4 @@
         });
     </script>
 </body>
-</html>                
+</html>            
