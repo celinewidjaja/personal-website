@@ -407,12 +407,8 @@ body {
     <p class="project-subtitle">Predictive Analytics for Click-Through Rate Enhancement</p>
     <div class="project-tags-header">
         <span class="tag">R</span>
-        <span class="tag">Python</span>
-        <span class="tag">XGBoost</span>
-        <span class="tag">Random Forest</span>
-        <span class="tag">GAM</span>
         <span class="tag">Machine Learning</span>
-        <span class="tag">Predictive Analytics</span>
+        <span class="tag">Marketing Analytics</span>
     </div>
 </header>
 
@@ -443,56 +439,48 @@ body {
 
                 <h2>Project Overview</h2>
                 <p>
-                    This analysis develops a machine learning solution to predict and optimize Click-Through Rates (CTR) for digital advertising campaigns. Using comprehensive campaign data including ad characteristics, audience demographics, and engagement metrics, we've created a predictive model that helps maximize advertising ROI through data-driven targeting and content optimization.
+                    In this project, we used machine learning algorithms to predict and optimize Click-Through Rates (CTR) for digital advertising campaigns. We used campaign data obtained from Kaggle that includes ad characteristics, audience demographics, and engagement metrics.
                 </p>
 
-                <div class="key-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">0.561</span>
-                        <span class="stat-label">Visual Appeal Correlation</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">69.7%</span>
-                        <span class="stat-label">Mobile Traffic</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">0.059</span>
-                        <span class="stat-label">Final Model RMSE</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">6</span>
-                        <span class="stat-label">Model Types Tested</span>
-                    </div>
-                </div>
-
                 <h3>Data Structure & Features</h3>
-                <p>The dataset analyzes ad campaign performance across multiple dimensions, providing comprehensive insights into digital advertising effectiveness:</p>
+                <p>The dataset analyzes ad campaign performance across multiple dimensions:</p>
 
                 <h4>Ad Quality Metrics</h4>
                 <ul>
-                    <li><strong>Visual Appeal:</strong> 1-10 scale measuring aesthetic quality</li>
-                    <li><strong>Targeting Score:</strong> 1-10 scale measuring audience precision</li>
-                    <li><strong>CTA Strength:</strong> 1-10 scale measuring call-to-action effectiveness</li>
-                    <li><strong>Contextual Relevance:</strong> Binary indicator of content-context alignment</li>
+                    <li><strong>Visual Appeal</strong> (1-10 scale measuring aesthetic quality)</li>
+                    <li><strong>Targeting Score</strong> (1-10 scale measuring audience precision)</li>
+                    <li><strong>CTA Strength</strong> (1-10 scale measuring call-to-action effectiveness)</li>
+                    <li><strong>Contextual Relevance</strong> (Binary indicator of content-context alignment)</li>
                 </ul>
 
                 <h4>Content Characteristics</h4>
                 <ul>
-                    <li><strong>Headline Length:</strong> Character count optimization</li>
-                    <li><strong>Body Readability:</strong> 1-100 score measuring content clarity</li>
-                    <li><strong>Ad Format:</strong> Image, Video, or Text-based content</li>
-                    <li><strong>Position on Page:</strong> Placement impact analysis</li>
+                    <li><strong>Headline Length</strong></li>
+                    <li><strong>Body Readability</strong> (1-100 score measuring content clarity)</li>
+                    <li><strong>Ad Format</strong> (Image, Video, or Text-based content)</li>
+                    <li><strong>Position on Page</strong></li>
+                </ul>
+
+                <h4>Audience Demographics</h4>
+                <ul>
+                    <li><strong>Age group</strong></li>
+                    <li><strong>Gender</strong></li>
+                    <li><strong>Location</strong> (Northeast, Midwest, South, West)</li>
+                </ul>
+
+                <h4>Engagement Context</h4>
+                <ul>
+                    <li><strong>Time of Day</strong></li>
+                    <li><strong>Day of Week</strong></li>
+                    <li><strong>Device Type</strong></li>
+                    <li><strong>Seasonality</strong></li>
                 </ul>
             </div>
         
             <aside class="analysis-sidebar">
                 <h4>Technology Stack</h4>
                 <ul>
-                    <li><strong>R:</strong> Primary analysis language</li>
-                    <li><strong>Python:</strong> Data preprocessing</li>
-                    <li><strong>XGBoost:</strong> Final model implementation</li>
-                    <li><strong>GAM:</strong> Non-linear relationship modeling</li>
-                    <li><strong>Random Forest:</strong> Feature importance analysis</li>
+                    <li><strong>R:</strong></li>
                 </ul>
         
                 <h4>Key Techniques</h4>
@@ -500,7 +488,7 @@ body {
                     <li><strong>Feature Selection:</strong> LASSO, Ridge, PCA</li>
                     <li><strong>Imputation:</strong> Bag imputation for missing values</li>
                     <li><strong>Cross-Validation:</strong> Model performance validation</li>
-                    <li><strong>Ensemble Methods:</strong> Bagging and boosting</li>
+                    <li><strong>Machine Learning Algorithms:</strong> Linear & Polynomial Regression, GAM, Bagging,Random Forest, XGBoost</li>
                 </ul>
 
                 <h4>Model Performance</h4>
@@ -511,7 +499,7 @@ body {
         </div>
 
         <h2>Model Development Journey</h2>
-        <p>Through iterative refinement, our modeling approach evolved from simple linear regression to sophisticated ensemble methods, each step revealing new insights about the data structure and optimal prediction strategies.</p>
+        <p>Through iterative refinement, our modeling approach evolved from simple linear regression to ensemble methods, each step revealing new insights about the data structure and optimal prediction strategies.</p>
 
         <div class="model-table">
             <table>
@@ -622,15 +610,6 @@ body {
                 The analysis assumes consistent measurement of subjective metrics like visual appeal and targeting score. The model's performance may vary with changes in market conditions or consumer behavior. Geographic and demographic patterns might reflect current campaign targeting rather than inherent preferences. Additional data on user behavior and long-term engagement would strengthen these findings. The model should be retrained regularly as digital advertising landscapes evolve rapidly.
             </p>
         </div>
-
-        <h2>Technical Implementation</h2>
-        <p>
-            The complete codebase is available on GitHub, including data preprocessing scripts, model implementations, and evaluation frameworks. The repository includes requirements files for both R and Python environments, making it easy to reproduce results and adapt the methodology to new datasets.
-        </p>
-
-        <p>
-            Key technical highlights include sophisticated feature engineering, comprehensive cross-validation frameworks, and modular code structure that enables easy experimentation with different algorithms and hyperparameters.
-        </p>
     </main>
 </div>
 </div>
